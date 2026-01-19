@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <title>Lesson 5 - Forms</title>
+    </head>
+    <body>
+        <center><h1>HTML Forms</h1></center>
+
+        <!-- HTML Forms are used to collect user data and store the same data inside of a Database. Forms in HTML are introduced by the use of the form tag element. To have  a partition iside of the form we use the fieldset tag element. To label/give a heading to the partition we use the legend tag element. A form uses different input types to collect the user date i.e email, date, file, passsword, name e.t.c.   -->
+
+        <form>
+            <!-- first partition starts here -->
+            <fieldset>
+                <legend>Personal Details</legend>
+
+                <input type="text" placeholder=" Enter fullname" ><br> <br>
+
+                <input type="number"  placeholder=" Enter ID number"><br> <br>
+
+                <input type="email"  placeholder="Enter email address"><br> <br>
+
+                <input type="password"  placeholder="Enter your password"><br> <br>
+
+                <label> Your D.O.B </label> <br>
+                <input type="date">
+
+            </fieldset>
+            <!-- first partition ends here -->
+             <!-- second partition starts here -->
+              <fieldset>
+                <legend>Selections</legend>
+
+                <label> Your Interests/Hobbies</label><br>
+                <input type="checkbox"> Football <br>
+                <input type="checkbox"> Gardening <br>
+                <input type="checkbox"> Coding <br>
+                <input type="checkbox"> Reading <br> <br>
+
+                <label> Your Gender</label> <br>
+                <input type="radio" name="Gender"> Male <br>
+                <input type="radio" name="Gender"> Female <br> <br>
+
+                <label> Choose your profile picture</label> <br>
+                <input type="file"><br> <br>
+
+                <label>Select a Course</label> <br>
+                <select>
+                    <option value="0">Choose a course</option>
+                    <option value="1">Bachelors of  Computer Science</option>
+                    <option value="2">Bachelor of Business Information  Technology</option>
+                    <option value="3">Bachelors of Information Technology</option>
+                </select>
+              </fieldset>
+              <!-- second partition ends here -->
+               <!-- third partition starts here -->
+                <fieldset>
+                  <legend>feedback</legend>
+
+                  <label>Leave a comment</label><br>
+                  <textarea cols="50" rows="10" placeholder="Type your  feedback"></textarea>
+                </fieldset>
+                <!-- end of third partition -->
+                 <input type="submit" value="Make Application"> <br><br>
+                 <input type="reset">
+        </form>
+    </body>
+</html>
