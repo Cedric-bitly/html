@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To My Dad - A Tribute</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=Cormorant+Garamond:wght@400;500;600&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: #000;
+            font-family: 'Montserrat', sans-serif;
+            color: #fff;
+            min-height: 100vh;
+        }
+        
+        .poster {
+            max-width: 900px;
+            margin: 0 auto;
+            background: linear-gradient(180deg, 
+                #000000 0%, 
+                #1a1a1a 30%, 
+                #2d2d2d 60%, 
+                #1a1a1a 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Film grain overlay */
+        .poster::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+        }
+        
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 60px 40px;
+            background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+        }
+        
+        .year-badge {
+            font-size: 0.9em;
+            letter-spacing: 8px;
+            color: #888;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+        
+        .main-title {
+            font-size: 5em;
+            font-weight: 900;
+            letter-spacing: 15px;
+            color: #D4AF37;
+            text-transform: uppercase;
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+        
+        .subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5em;
+            color: #ccc;
+            font-style: italic;
+            letter-spacing: 3px;
+        }
+        
+        .tagline {
+            margin-top: 30px;
+            font-size: 1.1em;
+            color: #666;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        
+        /* The Six Pillars */
+        .pillars-section {
+            padding: 60px 50px;
+        }
+        
+        .pillars-title {
+            text-align: center;
+            font-size: 1.2em;
+            letter-spacing: 10px;
+            color: #888;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+        
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .pillar {
+            text-align: center;
+            padding: 30px 20px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, transparent 100%);
+            position: relative;
+        }
+        
+        .pillar::before {
+            content: attr(data-number);
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #1a1a1a;
+            padding: 0 15px;
+            color: #D4AF37;
+            font-size: 1.5em;
+            font-weight: 700;
+        }
+        
+        .pillar-title {
+            font-size: 0.85em;
+            letter-spacing: 2px;
+            color: #D4AF37;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        
+        .pillar-text {
+            font-size: 0.9em;
+            line-height: 1.7;
+            color: #aaa;
+            font-weight: 300;
+        }
+        
+        /* Quote Section */
+        .quote-section {
+            padding: 80px 60px;
+            text-align: center;
+            background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
+        }
+        
+        .quote {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2em;
+            line-height: 1.5;
+            color: #ddd;
+            font-style: italic;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .quote::before {
+            content: '"';
+            display: block;
+            font-size: 4em;
+            color: #D4AF37;
+            line-height: 0.5;
+            margin-bottom: 20px;
+            opacity: 0.5;
+        }
+        
+        /* Credits */
+        .credits {
+            padding: 60px 40px;
+            text-align: center;
+            background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.5) 100%);
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .credits-label {
+            font-size: 0.8em;
+            letter-spacing: 5px;
+            color: #555;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        
+        .family-names {
+            font-size: 1.3em;
+            color: #888;
+            letter-spacing: 2px;
+            line-height: 2;
+        }
+        
+        .cedric {
+            color: #888;
+            font-weight: 400;
+        }
+        
+        /* Footer */
+        .footer {
+            padding: 40px;
+            text-align: center;
+            font-size: 0.75em;
+            color: #333;
+            letter-spacing: 3px;
+        }
+        
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2.5em;
+                letter-spacing: 8px;
+            }
+            
+            .pillars-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .quote {
+                font-size: 1.4em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="poster">
+        <div class="hero">
+            <div class="year-badge">HAPPY BIRTHDAY</div>
+            <h1 class="main-title">DAD</h1>
+            <div class="subtitle">The Man Who Built Our World</div>
+            <div class="tagline">A Celebration of Our Provider, Protector & Hero</div>
+        </div>
+        
+        <div class="pillars-section">
+            <div class="pillars-title">The Six Pillars of Fatherhood</div>
+            <div class="pillars-grid">
+                <div class="pillar" data-number="I">
+                    <div class="pillar-title">The Provider</div>
+                    <div class="pillar-text">School fees paid, futures secured. Education is the greatest gift you gave us.</div>
+                </div>
+                <div class="pillar" data-number="II">
+                    <div class="pillar-title">The Guardian</div>
+                    <div class="pillar-text">Medical bills covered, health protected. You keep us safe in every way that matters.</div>
+                </div>
+                <div class="pillar" data-number="III">
+                    <div class="pillar-title">The Foundation</div>
+                    <div class="pillar-text">Lights on, water running, home warm. You manage it all so we never worry.</div>
+                </div>
+                <div class="pillar" data-number="IV">
+                    <div class="pillar-title">The Example</div>
+                    <div class="pillar-text">Hard work, sacrifice, dedication. You show us what it means to be a man.</div>
+                </div>
+                <div class="pillar" data-number="V">
+                    <div class="pillar-title">The Rock</div>
+                    <div class="pillar-text">Always there, never wavering. Our steady hand through every storm.</div>
+                </div>
+                <div class="pillar" data-number="VI">
+                    <div class="pillar-title">The Best Dad</div>
+                    <div class="pillar-text">Simply the greatest. Your love makes our family complete and whole.</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="quote-section">
+            <div class="quote">
+                Thank you for being our superhero, our provider, and our biggest supporter. Your love and dedication make our family complete. Today we celebrate not just your birthday, but the amazing man you are.
+            </div>
+        </div>
+        
+        <div class="credits">
+            <div class="credits-label">With Eternal Love & Gratitude</div>
+            <div class="family-names">
+                Mum &nbsp;•&nbsp; Collins &nbsp;•&nbsp; Caleb &nbsp;•&nbsp; Cynthia &nbsp;•&nbsp; Clifford &nbsp;•&nbsp; <span class="cedric">Cedric</span>
+            </div>
+        </div>
+        
+        <div class="footer">
+            EST. [BIRTH YEAR] • FOREVER IN OUR HEARTS
+        </div>
+    </div>
+
+    <script>
+        // Tab Fullscreen toggle
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Tab') {
+                e.preventDefault();
+                if (!document.fullscreenElement) {
+                    document.documentElement.requestFullscreen().catch(err => {
+                        console.log(`Error attempting to enable fullscreen: ${err.message}`);
+                    });
+                } else {
+                    document.exitFullscreen();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
